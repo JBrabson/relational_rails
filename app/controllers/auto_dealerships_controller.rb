@@ -5,6 +5,7 @@ class AutoDealershipsController < ApplicationController
   end
 
   def show
+    @auto_dealership = AutoDealership.find(params[:id])
   end
 
   def new
