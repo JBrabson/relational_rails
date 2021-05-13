@@ -17,7 +17,7 @@ class AutoDealershipsController < ApplicationController
 
   def create
     @auto_dealership = AutoDealership.new(auto_dealership_params)
-    @auto_dealership.save
+    @auto_dealership.save!
 
     redirect_to '/auto_dealerships'
   end

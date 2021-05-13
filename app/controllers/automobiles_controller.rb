@@ -8,7 +8,6 @@ class AutomobilesController < ApplicationController
   end
 
   def new
-    @automobile = Automobile.new
   end
 
   def edit
@@ -16,9 +15,9 @@ class AutomobilesController < ApplicationController
 
   def create
     @auto_dealership = AutoDealership.find(params[:id])
-    automobile = Automobile.new(automobile_params)
+    @automobile = AutoDealership.automobiles.new(automobile_params)
 
-    automobile.save
+    @automobile.save
 
     redirect_to "/auto_dealerships/#{@auto_dealership.id/automobiles}"
   end
