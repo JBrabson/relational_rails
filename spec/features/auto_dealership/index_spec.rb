@@ -24,12 +24,14 @@ end
   # And next to each of the records I see when it was created
 describe "When I visit the Auto Dealerships index page" do
   it "it displays all dealerships and corresponding timestamp, ordered by most recently created" do
-    dealership_1 = AutoDealership.create!(name: "Larry H Miller", preowned_sales: true, foreign_inventory: false,
-      city: "Denver", state: "CO")
-    dealership_2 = AutoDealership.create!(name: "Stevinson Lexus", preowned_sales: true, foreign_inventory: true,
+    dealership_1 = AutoDealership.create!(name: "Stevinson Lexus", preowned_sales: true, foreign_inventory: true,
       city: "Golden", state: "CO")
+    dealership_2 = AutoDealership.create!(name: "Larry H Miller", preowned_sales: true, foreign_inventory: false,
+      city: "Denver", state: "CO")
 
     visit '/auto_dealerships'
-    expect("Larry H Miller").to appear_before("Stevinson Lexus", only_text: true)
+    expect(page).to have_content(dealership_1.created_at)
+    expect(page).to have_content(dealership_2.created_at)
+    expect("Stevinson Lexus").to appear_before("Larry H Miller", only_text: true)
   end
 end
