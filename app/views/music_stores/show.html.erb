@@ -1,0 +1,10 @@
+<h1><%= @music_store.name %></h1>
+<p>Store number: <%= @music_store.id %></p>
+<% if @music_store.rents == true %>
+<p>Yes We Rent!!!</p>
+<% else %>
+<p>No Rentals<p>
+<% end %>
+<p>Lesson cost: $<%= @music_store.lesson_cost %></p>
+<p>Selling your music needs since <%= @music_store.created_at %>!!!</p>
+<p>Updated at: <%= @music_store.updated_at %></p>

@@ -1,0 +1,5 @@
+<h1>Instruments</h1>
+<p><% @instruments.each do |instrument| %></p>
+  <h3><%= instrument.kind %></h3>
+  <p>Cost: $<%= instrument.cost %></p>
+<% end %>

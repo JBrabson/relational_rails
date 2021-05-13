@@ -1,0 +1,2 @@
+class MusicStore < ApplicationRecord
+end
