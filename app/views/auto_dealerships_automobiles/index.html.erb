@@ -3,7 +3,11 @@
   <h3><a href=<%"automobiles/#{automobile.id}"%>><%= "#{automobile.year} #{automobile.make} #{automobile.model}" %></h3>
     <ul>
       <p><%= "Preowned: #{automobile.preowned}" %></p>
+      <p><%= "#{automobile.year} #{automobile.make} #{automobile.model}" %></p>
+      <p><%= " V#{automobile.cylinders} #{automobile.horsepower}HP #{automobile.engine} #{automobile.drive_train}" %></p>
       <p><%= "Color: #{automobile.color}" %></p>
-      <p><%= "#{automobile.drive_train} V#{automobile.cylinders} #{automobile.engine}" %></p><br>
+      <p><%= "Automatic: #{automobile.automatic}" %></p>
+      <p><%= "Seating Capacity: #{automobile.seating_capacity}" %></p>
+      <p><%= "MSRP: $#{automobile.price}" %></p><br>
     </ul>
 <% end %>
