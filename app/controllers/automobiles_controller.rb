@@ -22,12 +22,9 @@ class AutomobilesController < ApplicationController
     redirect_to "/auto_dealerships/#{@auto_dealership.id/automobiles}"
   end
 
-  # PATCH/PUT /automobiles/1 or /automobiles/1.json
   def update
-
   end
 
-  # DELETE /automobiles/1 or /automobiles/1.json
   def destroy
   end
 

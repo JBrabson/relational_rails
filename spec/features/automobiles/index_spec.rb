@@ -2,12 +2,11 @@ require "rails_helper"
 
 RSpec.describe "As a visitor"
 
-# User Story 3
-# When I visit '/child_table_name'
-# Then I see each Child in the system including the Child's attributes:
-
+  # User Story 3
+  # When I visit '/child_table_name'
+  # Then I see each Child in the system including the Child's attributes:
 describe "When I visit the Automobiles index page" do
-  it "displays all automobiles and their attributes" do
+  it "it displays all automobiles and their attributes" do
     dealership_1 = AutoDealership.create!(name: "Larry H Miller", preowned_sales: true, foreign_inventory: false,
       city: "Denver", state: "CO")
       raptor = dealership_1.automobiles.create!(preowned: false, year: 2022, make: 'Ford', model: 'F-150 Raptor', color: 'Gunmetal', automatic: true,

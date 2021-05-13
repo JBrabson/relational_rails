@@ -1,4 +1,4 @@
 <h1>All Dealerships</h1><br>
 <% @auto_dealerships.each do |dealership| %>
-  <h3><a href="auto_dealerships/<%= dealership.id %>"><%= dealership.name %></h3>
+  <h3><a href="/auto_dealerships/<%= dealership.id %>"><%= dealership.name %></a></h3>
 <% end %>

@@ -40,6 +40,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'capybara'
+  gem 'orderly'
 end
 
 group :development do
