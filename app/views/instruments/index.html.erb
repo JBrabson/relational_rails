@@ -1,5 +1,20 @@
+<style>
+body {
+  background-image: url(https://cdn.shopify.com/s/files/1/0428/0209/products/Titanium-Guitar-Pick--_102814.jpg?v=1547798687);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+
 <h1>Instruments</h1>
 <p><% @instruments.each do |instrument| %></p>
-  <h3><%= instrument.kind %></h3>
+  <h3><%= link_to instrument.kind, "/instruments/#{instrument.id}" %></h3>
+  <p>Store number: <%= instrument.music_store_id %>
   <p>Cost: $<%= instrument.cost %></p>
+  <% if instrument.rent_to_own == true %>
+  <p> Rent to own available </p>
+  <% else %>
+  <p> Rent to own unavailable </p>
+  <% end %>
 <% end %>

@@ -1,4 +1,14 @@
+<style>
+body {
+  background-image: url(https://images.ctfassets.net/3s5io6mnxfqz/7frDxzTDmtdJfuNN6IbXo8/6908053ae09c9097c81fee41fdd3f241/AdobeStock_212117205.jpg?fm=jpg&w=1200&fl=progressive);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+
 <h1>Music Stores</h1>
 <% @music_stores.each do |music_store| %>
-<p><%= music_store.name %></p>
+  <p><%= link_to music_store.name, "/music_stores/#{music_store.id}" %></p>
 <% end %>
+

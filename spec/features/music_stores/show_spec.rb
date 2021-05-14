@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "show" do
+RSpec.describe "it shows the music store and its attributes" do
   before :each do
     @music_store_1 = MusicStore.create!(id: 1,
                                         name: "Ringos Rock About",
@@ -12,6 +12,7 @@ RSpec.describe "show" do
                                         lesson_cost: 50)
   end
   it 'can show a store by id with all attributes' do
+
     visit 'music_stores/1'
 
     expect(page).to have_content("Store number: 1")
