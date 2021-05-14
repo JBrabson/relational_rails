@@ -4,6 +4,10 @@ class AutoDealershipsAutomobilesController < ApplicationController
     @automobiles = @auto_dealership.automobiles.all
   end
 
+  def show
+    @automobile = Automobile.find(params[:id])
+  end
+  
   private
 
   def automobile_params
