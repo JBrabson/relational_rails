@@ -1,6 +1,6 @@
 <h1>Automobiles</h1><br>
 <% @automobiles.each do |automobile| %>
-  <h3><a href=<%"automobiles/#{automobile.id}"%>><%= "#{automobile.year} #{automobile.make} #{automobile.model}" %></a></h3>
+    <h3><a href="automobiles/<%= automobile.id %>"><%= "#{automobile.year} #{automobile.make} #{automobile.model}" %></a></h3>
     <ul>
       <p><%= "Preowned: #{automobile.preowned}" %></p>
       <p><%= "#{automobile.year} #{automobile.make} #{automobile.model}" %></p>
