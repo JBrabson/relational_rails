@@ -5,7 +5,7 @@ RSpec.describe "As a visitor"
 #User Story 5, Parent Children Index
 # When I visit '/parents/:parent_id/child_table_name'
 # Then I see each Child that is associated with that Parent with each Child's attributes:
-describe "When I click on Automobiles from the Auto Dealership page" do
+describe "When I visit an Automobiles from specific Auto Dealership page" do
   it "it displays all Automobiles associated with that Auto Dealership and the Automobiles attributes" do
     dealership_1 = AutoDealership.create!(name: "Larry H Miller", preowned_sales: true, foreign_inventory: false,
       city: "Denver", state: "CO")
@@ -74,5 +74,24 @@ describe "When I click on an Automobile from the list of Automobiles associated 
     expect(page).to_not have_content(fusion.model)
     expect(page).to_not have_content(gx460.model)
     expect(page).to_not have_content(raptor.model)
+  end
+end
+
+# User Story 10, Parent Child Index Link
+# When I visit a parent show page ('/parents/:id')
+# Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
+describe "When I visit an Auto Dealership show page" do
+  it "it displays a link to take me to Automobiles at that specific dealership" do
+    dealership_1 = AutoDealership.create!(name: "Larry H Miller", preowned_sales: true, foreign_inventory: false,
+      city: "Denver", state: "CO")
+    raptor = dealership_1.automobiles.create!(preowned: false, year: 2022, make: 'Ford', model: 'F-150 Raptor', color: 'Gunmetal', automatic: true,
+      engine: 'Gasoline Twin-Turbo', horsepower: 450, cylinders: 6, drive_train: '4WD', price: 62335, seating_capacity: 5)
+    fusion = dealership_1.automobiles.create!(preowned: true, year: 2020, make: 'Ford', model: 'Fusion SEL', color: 'Black Onyx', automatic: true,
+        engine: 'Gasoline', horsepower: 175, cylinders: 4, drive_train: 'FWD', price: 23170, seating_capacity: 5)
+
+    visit "/auto_dealerships/#{dealership_1.id}"
+    expect(page).to have_link("Vehicles Available at this Location (#{dealership_1.automobiles.count})")
+    click_link "Vehicles Available at this Location (#{dealership_1.automobiles.count})"
+    expect(current_path).to eq("/auto_dealerships/#{dealership_1.id}/automobiles")
   end
 end
