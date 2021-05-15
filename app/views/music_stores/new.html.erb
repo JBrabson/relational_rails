@@ -1,0 +1,9 @@
+<%= form_with url: '/music_stores', method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :rents %>
+  <%= form.text_field :rents %>
+  <%= form.label :lesson_cost %>
+  <%= form.text_field :lesson_cost %>
+  <%= form.submit "Create Music Store" %>
+<% end %>

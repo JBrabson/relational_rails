@@ -1,0 +1,9 @@
+<%= form_with url: '/instruments', method: :post, local: true do |form| %>
+  <%= form.label :kind %>
+  <%= form.text_field :kind %>
+  <%= form.label :rent_to_own %>
+  <%= form.text_field :rent_to_own %>
+  <%= form.label :cost %>
+  <%= form.text_field :cost %>
+  <%= form.submit "Create Instrument" %>
+<% end %>

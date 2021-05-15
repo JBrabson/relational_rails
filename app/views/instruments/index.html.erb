@@ -18,6 +18,7 @@ a:hover {
 </style>
 
 <h1>Instruments</h1>
+<%= button_to "New Instrument", "/instruments/new", method: :get %>
 <p><% @instruments.each do |instrument| %></p>
   <h3><%= link_to instrument.kind, "/instruments/#{instrument.id}" %></h3>
   <h4>Store number: <%= instrument.music_store_id %></h4>
@@ -27,4 +28,7 @@ a:hover {
   <% else %>
   <h4> Rent to own unavailable </h4>
   <% end %>
+  <%= button_to "Edit", "/instruments/#{instrument.id}/edit", method: :get %>
+  <%= button_to "Delete", "/instruments/#{instrument.id}", method: :delete %>
 <% end %>
+
