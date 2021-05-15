@@ -32,3 +32,36 @@ describe "When I visit the Automobiles index page" do
     expect(page).to have_content(nx300.year)
   end
 end
+
+describe "When I visit any page" do
+
+  # User Story 8, Child Index Link
+  # When I visit any page on the site
+  # Then I see a link at the top of the page that takes me to the Child Index
+  it "displays link to Automobiles index page" do
+    dealership_1 = AutoDealership.create!(name: "Larry H Miller", preowned_sales: true, foreign_inventory: false,
+      city: "Denver", state: "CO")
+    raptor = dealership_1.automobiles.create!(preowned: false, year: 2022, make: 'Ford', model: 'F-150 Raptor', color: 'Gunmetal', automatic: true,
+      engine: 'Gasoline Twin-Turbo', horsepower: 450, cylinders: 6, drive_train: '4WD', price: 62335, seating_capacity: 5)
+
+      visit "/auto_dealerships"
+      expect(page).to have_link("All Automobiles")
+      click_link "All Automobiles"
+      expect(current_path).to eq("/automobiles")
+
+      visit "/auto_dealerships/#{dealership_1.id}"
+      expect(page).to have_link("All Automobiles")
+      click_link "All Automobiles"
+      expect(current_path).to eq("/automobiles")
+
+      visit "/auto_dealerships/#{dealership_1.id}/automobiles"
+      expect(page).to have_link("All Automobiles")
+      click_link "All Automobiles"
+      expect(current_path).to eq("/automobiles")
+
+      visit "/automobiles/#{raptor.id}"
+      expect(page).to have_link("All Automobiles")
+      click_link "All Automobiles"
+      expect(current_path).to eq("/automobiles")
+  end
+end
