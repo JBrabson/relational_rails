@@ -33,3 +33,36 @@ describe "When I visit the Auto Dealerships index page" do
     expect("Stevinson Lexus").to appear_before("Larry H Miller", only_text: true)
   end
 end
+
+describe "When I visit any page" do
+
+  # User Story 9, Parent Index Link
+  # When I visit any page on the site
+  # Then I see a link at the top of the page that takes me to the Parent Index
+  it "displays link to Auto Dealerships index page" do
+    dealership_1 = AutoDealership.create!(name: "Larry H Miller", preowned_sales: true, foreign_inventory: false,
+      city: "Denver", state: "CO")
+    raptor = dealership_1.automobiles.create!(preowned: false, year: 2022, make: 'Ford', model: 'F-150 Raptor', color: 'Gunmetal', automatic: true,
+      engine: 'Gasoline Twin-Turbo', horsepower: 450, cylinders: 6, drive_train: '4WD', price: 62335, seating_capacity: 5)
+
+      visit "/automobiles"
+      expect(page).to have_link("All Dealerships")
+      click_link "All Dealerships"
+      expect(current_path).to eq("/auto_dealerships")
+
+      visit "/automobiles/#{raptor.id}"
+      expect(page).to have_link("All Dealerships")
+      click_link "All Dealerships"
+      expect(current_path).to eq("/auto_dealerships")
+
+      visit "/auto_dealerships/#{dealership_1.id}/automobiles"
+      expect(page).to have_link("All Dealerships")
+      click_link "All Dealerships"
+      expect(current_path).to eq("/auto_dealerships")
+
+      visit "/auto_dealerships/#{dealership_1.id}/automobiles/#{raptor.id}"
+      expect(page).to have_link("All Dealerships")
+      click_link "All Dealerships"
+      expect(current_path).to eq("/auto_dealerships")
+  end
+end
