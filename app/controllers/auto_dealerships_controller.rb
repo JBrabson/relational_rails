@@ -9,7 +9,6 @@ class AutoDealershipsController < ApplicationController
   end
 
   def new
-    @auto_dealership = AutoDealership.new
   end
 
   def edit
