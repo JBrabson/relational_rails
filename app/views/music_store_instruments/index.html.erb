@@ -1,25 +1,27 @@
 <style>
 body {
-  background-image: url(https://cdn.shopify.com/s/files/1/0428/0209/products/Titanium-Guitar-Pick--_102814.jpg?v=1547798687);
+  background-image: url(https://images.pexels.com/photos/6966/abstract-music-rock-bw.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  color: Black;
+  text-align: center;
+  color: black;
 }
 a:link, a:visited {
   background: transparent;
-  color: black;
-  text-decoration: underline;
+  color: blue;
+  text-decoration: none;
 }
 a:hover {
   font-weight: 700;
-  color: blue;
+  color: white;
 }
 </style>
 
-<h1>Instruments</h1>
+<h1><%= @music_store.name %></h1>
+<h2>Instruments</h2>
 <p><% @instruments.each do |instrument| %></p>
-  <h3><%= link_to instrument.kind, "/instruments/#{instrument.id}" %></h3>
+<h3><%= link_to instrument.kind, "/instruments/#{instrument.id}" %></h3>
   <h4>Store number: <%= instrument.music_store_id %></h4>
   <h4>Cost: $<%= instrument.cost %></h4>
   <% if instrument.rent_to_own == true %>

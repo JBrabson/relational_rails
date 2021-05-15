@@ -6,9 +6,8 @@ body {
   background-size: cover;
 }
 </style>
-
-<h1><%= @instrument.kind %></h1>
-<h3>Store number: <%= @instrument.music_store_id %></h3>
+<h1>Location: <%= @instrument.music_store.name %></h1>
+<h2>Instrument: <%= @instrument.kind %></h2>
 <h3>Cost: $<%= @instrument.cost %></h3>
 <% if @instrument.rent_to_own == true %>
 <h3> Rent to own available </h3>

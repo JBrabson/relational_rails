@@ -4,11 +4,24 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: 'flex-end';
+}
+a:link, a:visited {
+  background: transparent;
+  color: Black;
+  text-decoration: underline;
+}
+a:hover {
+  font-weight: 700;
+  color: grey;
 }
 </style>
 
 <h1>Music Stores</h1>
 <% @music_stores.each do |music_store| %>
-  <p><%= link_to music_store.name, "/music_stores/#{music_store.id}" %></p>
+  <h3><%= link_to music_store.name, "/music_stores/#{music_store.id}" %></h3>
 <% end %>
 

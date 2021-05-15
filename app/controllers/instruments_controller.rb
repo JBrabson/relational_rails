@@ -4,7 +4,6 @@ class InstrumentsController < ApplicationController
   end
 
   def show
-    # require 'pry'; binding.pry
     @instrument = Instrument.find(params[:id])
   end
 end
