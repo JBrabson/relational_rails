@@ -29,6 +29,6 @@ class AutoDealershipsController < ApplicationController
 
   private
     def auto_dealership_params
-      params.require(:auto_dealership).permit(:name, :preowned_sales, :foreign_inventory, :city, :state)
+      params.permit(:name, :preowned_sales, :foreign_inventory, :city, :state)
     end
 end

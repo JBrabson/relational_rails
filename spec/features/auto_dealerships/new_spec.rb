@@ -22,23 +22,18 @@ describe "When I visit the Auto Dealerships index page" do
           click_on "New Auto Dealership"
 
           expect(current_path).to eq("/auto_dealerships/new")
-          expect(page).to have_content("Dealership Name:")
-          expect(page).to have_content("Preowned Sales:")
-          expect(page).to have_content("Foreign Inventory")
-          expect(page).to have_content("City")
-          expect(page).to have_content("State")
-          fill_in "Dealership Name:", with: "GM Headquarters Lot"
-          fill_in "Preowned Sales:", with: "true"
-          fill_in "Foreign Inventory:", with: "false"
+          fill_in "Name", with: "GM Headquarters Lot"
+          fill_in "Preowned sales", with: true
+          fill_in "Foreign inventory", with: false
           fill_in "City", with: "Detroit"
           fill_in "State", with: "Michigan"
 
           click_on "Create Auto Dealership"
           expect(current_path).to eq("/auto_dealerships")
           expect(page).to have_content("GM Headquarters Lot")
-          expect(page).to have_content("Location: Detroit, MI")
-          expect(page).to have_content("Preowned Sales: true")
-          expect(page).to have_content("Foreign Inventory: false")
+
+          #Additional testing to ensure attributes pulled to show page;
+          # how to pull ID?
         end
       end
     end
