@@ -12,6 +12,7 @@ class AutoDealershipsController < ApplicationController
   end
 
   def edit
+    @auto_dealership = AutoDealership.find(params[:id])
   end
 
   def create
@@ -22,6 +23,10 @@ class AutoDealershipsController < ApplicationController
   end
 
   def update
+    auto_dealership = AutoDealership.find(params[:id])
+    auto_dealership.update(auto_dealership_params)
+    auto_dealership.save!
+    redirect_to "/auto_dealerships/#{auto_dealership.id}"
   end
 
   def destroy
