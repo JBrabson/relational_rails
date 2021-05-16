@@ -1,17 +1,15 @@
 class InstrumentsController < ApplicationController
   def index
-    @instruments = Instrument.all
+    @instruments = Instrument.where("rent_to_own = true")
   end
 
-  def new
-  end
+  # def new
+  # end
 
-  def create
-    # require 'pry'; binding.pry
-    music_store = MusicStore.first
-    instrument = music_store.instruments.create!(instrument_params)
-    redirect_to '/instruments'
-  end
+  # def create
+  #   instrument = music_store.instruments.create!(instrument_params)
+  #   redirect_to '/instruments'
+  # end
 
   def edit
     @instrument = Instrument.find(params[:id])
@@ -20,7 +18,7 @@ class InstrumentsController < ApplicationController
   def update
     instrument = Instrument.find(params[:id])
     instrument.update(instrument_params)
-    redirect_to '/instruments'
+    redirect_to "/instruments/#{instrument.id}"
   end
 
   def destroy

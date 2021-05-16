@@ -18,8 +18,10 @@ a:hover {
 }
 </style>
 
+<%= link_to "All Music Stores |", "/music_stores" %>
+<%= link_to "All Instruments", "/instruments" %>
 <h1><%= @music_store.name %></h1>
-<%= link_to "Instruments", "/music_stores/#{@music_store.id}/instruments" %>
+<%= link_to "#{@instrument_count} Instruments Available", "/music_stores/#{@music_store.id}/instruments" %>
 <h3>Store number: <%= @music_store.id %></h3>
 <% if @music_store.rents == true %>
 <h3>Yes We Rent!!!</h3>
@@ -27,5 +29,6 @@ a:hover {
 <h3>No Rentals<h3>
 <% end %>
 <h3>Lesson cost: $<%= @music_store.lesson_cost %></h3>
+<%= button_to "Edit", "/music_stores/#{@music_store.id}/edit", method: :get %>
 
 

@@ -1,9 +1,32 @@
+<style>
+body {
+  background-image: url(https://media.npr.org/assets/img/2019/08/24/trumpet-1-76251e912a38b4406a92c4d57d232087294f6428.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: center;
+  color: white;
+}
+a:link, a:visited {
+  background: transparent;
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  font-weight: 700;
+  color: white;
+}
+</style>
+
+<%= link_to "All Music Stores |", "/music_stores" %>
+<%= link_to "All Instruments", "/instruments" %>
 <%= form_with url: "/music_stores/#{@music_store.id}", method: :patch, local: true do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
   <%= form.label :rents %>
   <%= form.text_field :rents %>
   <%= form.label :lesson_cost %>
-  <%= form.text_field :lesson_cost %>
+  <%= form.text_field :lesson_cost %><br>
+  <br>
   <%= form.submit 'Update Music Store' %>
 <% end %>

@@ -17,4 +17,16 @@ RSpec.describe 'it shows the instrument and its attributes' do
     expect(page).to_not have_content("Cost: $1500")
     expect(page).to_not have_content("Rent to own unavailable")
   end
+
+  it 'has links to parent/child index' do
+    visit "/instruments/#{@instrument.id}"
+    click_link "All Music Stores"
+
+    expect(current_path).to eq('/music_stores')
+
+    visit "/instruments/#{@instrument.id}"
+    click_link "All Instruments"
+
+    expect(current_path).to eq('/instruments')
+  end
 end

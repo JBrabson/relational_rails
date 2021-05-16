@@ -20,6 +20,7 @@ a:hover {
 }
 </style>
 
+<%= link_to "All Instruments", "/instruments" %>
 <h1>Music Stores</h1>
 <%= button_to "New Music Store", "/music_stores/new", method: :get %>
 <% @music_stores.each do |music_store| %>

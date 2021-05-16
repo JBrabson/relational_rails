@@ -1,3 +1,5 @@
+<%= link_to "All Music Stores |", "/music_stores" %>
+<%= link_to "All Instruments", "/instruments" %>
 <%= form_with url: '/music_stores', method: :post, local: true do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>

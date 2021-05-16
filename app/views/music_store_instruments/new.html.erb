@@ -1,4 +1,6 @@
-<%= form_with url: '/instruments', method: :post, local: true do |form| %>
+<%= link_to "All Music Stores |", "/music_stores" %>
+<%= link_to "All Instruments", "/instruments" %>
+<%= form_with url: "/music_stores/#{@music_store.id}/instruments", method: :post, local: true do |form| %>
   <%= form.label :kind %>
   <%= form.text_field :kind %>
   <%= form.label :rent_to_own %>

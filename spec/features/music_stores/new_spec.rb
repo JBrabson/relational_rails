@@ -21,4 +21,16 @@ RSpec.describe 'the music stores creation' do
     expect(current_path).to eq("/music_stores")
     expect(page).to have_content("Rockin Rob's")
   end
+
+  it 'has links to parent/child index' do
+    visit '/music_stores/new'
+    click_link "All Music Stores"
+
+    expect(current_path).to eq('/music_stores')
+
+    visit '/music_stores/new'
+    click_link "All Instruments"
+
+    expect(current_path).to eq('/instruments')
+  end
 end

@@ -6,6 +6,8 @@ body {
   background-size: cover;
 }
 </style>
+<%= link_to "All Music Stores |", "/music_stores" %>
+<%= link_to "All Instruments", "/instruments" %>
 <h1>Location: <%= @instrument.music_store.name %></h1>
 <h2>Instrument: <%= @instrument.kind %></h2>
 <h3>Cost: $<%= @instrument.cost %></h3>
@@ -14,3 +16,4 @@ body {
 <% else %>
 <h3> Rent to own unavailable </h3>
 <% end %>
+<%= button_to "Edit", "/instruments/#{@instrument.id}/edit", method: :get %>

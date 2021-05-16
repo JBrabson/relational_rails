@@ -16,9 +16,8 @@ a:hover {
   color: blue;
 }
 </style>
-
+<%= link_to "All Music Stores", "/music_stores" %>
 <h1>Instruments</h1>
-<%= button_to "New Instrument", "/instruments/new", method: :get %>
 <p><% @instruments.each do |instrument| %></p>
   <h3><%= link_to instrument.kind, "/instruments/#{instrument.id}" %></h3>
   <h4>Store number: <%= instrument.music_store_id %></h4>

@@ -17,4 +17,16 @@ RSpec.describe 'music_store_instruments index' do
     expect(page).to have_content("Cost: $1500")
     expect(page).to have_content("Rent to own unavailable")
   end
+
+  it 'has links to parent/child index' do
+    visit "music_stores/#{@music_store_1.id}/instruments"
+    click_link "All Music Stores"
+
+    expect(current_path).to eq('/music_stores')
+
+    visit "music_stores/#{@music_store_1.id}/instruments"
+    click_link "All Instruments"
+
+    expect(current_path).to eq('/instruments')
+  end
 end

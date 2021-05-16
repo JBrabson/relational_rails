@@ -1,6 +1,6 @@
 class MusicStoresController < ApplicationController
   def index
-    @music_stores = MusicStore.all
+    @music_stores = MusicStore.order(created_at: :desc)
   end
 
   def new
@@ -29,6 +29,7 @@ class MusicStoresController < ApplicationController
 
   def show
     @music_store = MusicStore.find(params[:id])
+    @instrument_count = @music_store.instruments.count
   end
 
 private

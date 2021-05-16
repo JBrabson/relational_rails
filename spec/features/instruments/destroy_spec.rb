@@ -6,7 +6,6 @@ RSpec.describe 'destroying an instrument' do
     instrument = music_store.instruments.create!(kind: "Guitar", rent_to_own: true, cost: 1000)
 
     visit '/instruments'
-
     click_button 'Delete'
 
     expect(current_path).to eq('/instruments')
