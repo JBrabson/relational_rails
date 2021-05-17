@@ -20,7 +20,7 @@ a:hover {
 <%= link_to "All Music Stores |", "/music_stores" %>
 <%= link_to "All Instruments", "/instruments" %>
 <h1><%= @music_store.name %></h1>
-<%= link_to "Sort Alphabetically", "/music_stores/#{@music_store.id}/instruments/alphabetical" %>
+<br>
 <h2>Instruments</h2>
 <p><% @instruments.each do |instrument| %></p>
 <h3><%= link_to instrument.kind, "/instruments/#{instrument.id}" %></h3>

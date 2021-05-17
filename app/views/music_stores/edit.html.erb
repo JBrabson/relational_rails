@@ -10,7 +10,7 @@ body {
 a:link, a:visited {
   background: transparent;
   color: white;
-  text-decoration: none;
+  text-decoration: underline;
 }
 a:hover {
   font-weight: 700;
@@ -20,13 +20,20 @@ a:hover {
 
 <%= link_to "All Music Stores |", "/music_stores" %>
 <%= link_to "All Instruments", "/instruments" %>
+<br>
+<br>
+<br>
 <%= form_with url: "/music_stores/#{@music_store.id}", method: :patch, local: true do |form| %>
+  Rentals
+  <p>True <%= form.radio_button :rents, value="true" %>
+  False <%= form.radio_button :rents, value="false" %></p>
   <%= form.label :name %>
-  <%= form.text_field :name %>
-  <%= form.label :rents %>
-  <%= form.text_field :rents %>
+  <%= form.text_field :name, :value => "#{@music_store.name}" %>
+  <br>
+  <br>
   <%= form.label :lesson_cost %>
-  <%= form.text_field :lesson_cost %><br>
+  <%= form.text_field :lesson_cost, :value => "#{@music_store.lesson_cost}" %><br>
+  <br>
   <br>
   <%= form.submit 'Update Music Store' %>
 <% end %>

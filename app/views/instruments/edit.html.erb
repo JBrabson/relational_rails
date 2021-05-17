@@ -10,7 +10,7 @@ body {
 a:link, a:visited {
   background: transparent;
   color: white;
-  text-decoration: none;
+  text-decoration: underline;
 }
 a:hover {
   font-weight: 700;
@@ -20,13 +20,18 @@ a:hover {
 
 <%= link_to "All Music Stores |", "/music_stores" %>
 <%= link_to "All Instruments", "/instruments" %>
+<br>
+<br>
 <%= form_with url: "/instruments/#{@instrument.id}", method: :patch, local: true do |form| %>
-  <%= form.label :type %>
-  <%= form.text_field :type %>
-  <%= form.label :rent_to_own %>
-  <%= form.text_field :rent_to_own %>
+  Rent to own
+  <p>True <%= form.radio_button :rent_to_own, value="true" %>
+  False <%= form.radio_button :rent_to_own, value="false" %></p>
+  <%= form.label :kind %>
+  <%= form.text_field :kind, :value => "#{@instrument.kind}" %>
+  <br>
+  <br>
   <%= form.label :cost %>
-  <%= form.text_field :cost %><br>
+  <%= form.text_field :cost, :value => "#{@instrument.cost}" %><br>
   <br>
   <%= form.submit 'Update Instrument' %>
 <% end %>

@@ -11,6 +11,18 @@ class InstrumentsController < ApplicationController
   #   redirect_to '/instruments'
   # end
 
+  def find_exact
+    @instruments = Instrument.all.find_all do |instrument|
+      instrument.kind.downcase == params["search"].downcase
+    end
+  end
+
+  def find_partial
+    @instruments = Instrument.all.find_all do |instrument|
+      instrument.kind.downcase.include?(params["search"].downcase) == true
+    end
+  end
+
   def edit
     @instrument = Instrument.find(params[:id])
   end

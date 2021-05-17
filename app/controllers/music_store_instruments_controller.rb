@@ -21,9 +21,9 @@ class MusicStoreInstrumentsController < ApplicationController
 
   def filter
     @music_store = MusicStore.find(params[:id])
-    price = params["price"].to_i
-    # require 'pry'; binding.pry
-    @instruments = @music_store.instruments.where("cost >= 200")
+    @instruments = @music_store.instruments.find_all do |instrument|
+      instrument.cost > params["price"].to_i
+    end
   end
 
 private

@@ -30,5 +30,6 @@ a:hover {
 <% end %>
 <h3>Lesson cost: $<%= @music_store.lesson_cost %></h3>
 <%= button_to "Edit", "/music_stores/#{@music_store.id}/edit", method: :get %>
+<%= button_to "Delete", "/music_stores/#{@music_store.id}", method: :delete %>
 
 

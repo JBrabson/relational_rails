@@ -17,6 +17,7 @@ a:hover {
   color: blue;
 }
 </style>
+<%= link_to "All Instruments |", "/instruments" %>
 <%= link_to "All Music Stores", "/music_stores" %>
 <h1>Instruments</h1>
 <%= form_with url: "/instruments/find_exact", method: :get, local: true do |form| %>
@@ -33,14 +34,13 @@ a:hover {
 <br>
 <p><% @instruments.each do |instrument| %></p>
   <h3><%= link_to instrument.kind, "/instruments/#{instrument.id}" %></h3>
-  <p>Store number: <%= instrument.music_store_id %></p>
-  <p>Cost: $<%= instrument.cost %></p>
+  <h4>Store number: <%= instrument.music_store_id %></h4>
+  <h4>Cost: $<%= instrument.cost %></h4>
   <% if instrument.rent_to_own == true %>
-  <p> Rent to own available </p>
+  <h4> Rent to own available </h4>
   <% else %>
-  <p> Rent to own unavailable </p>
+  <h4> Rent to own unavailable </h4>
   <% end %>
   <%= button_to "Edit", "/instruments/#{instrument.id}/edit", method: :get %>
   <%= button_to "Delete", "/instruments/#{instrument.id}", method: :delete %>
 <% end %>
-

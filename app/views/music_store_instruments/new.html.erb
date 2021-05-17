@@ -1,11 +1,33 @@
+<style>
+body {
+  background-image: url(https://i1.wp.com/www.linuxlinks.com/wp-content/uploads/2018/07/synthesizer-linux.jpg?resize=750%2C370&ssl=1);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: center;
+  color: white;
+}
+a:link, a:visited {
+  background: transparent;
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  font-weight: 700;
+  color: white;
+}
+</style>
+
 <%= link_to "All Music Stores |", "/music_stores" %>
 <%= link_to "All Instruments", "/instruments" %>
 <%= form_with url: "/music_stores/#{@music_store.id}/instruments", method: :post, local: true do |form| %>
   <%= form.label :kind %>
   <%= form.text_field :kind %>
-  <%= form.label :rent_to_own %>
-  <%= form.text_field :rent_to_own %>
+  <br>
+  <p>True <%= form.radio_button :rent_to_own, value="true" %>
+  False <%= form.radio_button :rent_to_own, value="false" %></p>
   <%= form.label :cost %>
-  <%= form.text_field :cost %>
+  <%= form.text_field :cost %><br>
+  <br>
   <%= form.submit "Create Instrument" %>
 <% end %>
