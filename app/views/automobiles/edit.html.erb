@@ -1,0 +1,37 @@
+<%= form_with url: "/automobiles/#{@automobile.id}", method: :patch, local: true do |form| %>
+<%= form.label :preowned %>
+<%= form.text_field :preowned %>
+<br>
+<%= form.label :year %>
+<%= form.number_field :year %>
+<br>
+<%= form.label :make %>
+<%= form.text_field :make %>
+<br>
+<%= form.label :model %>
+<%= form.text_field :model %>
+<br>
+<%= form.label :color %>
+<%= form.text_field :color %>
+<br>
+<%= form.label :automatic %>
+<%= form.text_field :automatic %>
+<br>
+<%= form.label :engine %>
+<%= form.text_field :engine %>
+<br>
+<%= form.label :horsepower %>
+<%= form.text_field :horsepower %>
+<br>
+<%= form.label :cylinders %>
+<%= form.number_field :cylinders %>
+<br>
+<%= form.label :drive_train %>
+<%= form.text_field :drive_train %>
+<br>
+<%= form.label :price %>
+<%= form.number_field :price %>
+<br>
+<br>
+<%= form.submit "Submit Changes" %>
+<% end %>

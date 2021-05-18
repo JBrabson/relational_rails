@@ -11,9 +11,6 @@ class AutomobilesController < ApplicationController
   def new
   end
 
-  def edit
-  end
-
   def create
     @auto_dealership = AutoDealership.find(params[:id])
     @automobile = AutoDealership.automobiles.new(automobile_params)
@@ -23,7 +20,15 @@ class AutomobilesController < ApplicationController
     redirect_to "/auto_dealerships/#{@auto_dealership.id/automobiles}"
   end
 
+  def edit
+    @automobile = Automobile.find(params[:id])
+  end
+
   def update
+    automobile = Automobile.find(params[:id])
+    automobile.update(automobile_params)
+    automobile.save!
+    redirect_to "/automobiles/#{automobile.id}"
   end
 
   def destroy
@@ -31,6 +36,6 @@ class AutomobilesController < ApplicationController
 
   private
     def automobile_params
-      params.require(:automobile).permit(:preowned, :year, :make, :model, :color, :automatic, :engine, :horsepower, :cylinders, :drive_train, :price, :seating_capacity)
+      params.permit(:preowned, :year, :make, :model, :color, :automatic, :engine, :horsepower, :cylinders, :drive_train, :price, :seating_capacity)
     end
 end
