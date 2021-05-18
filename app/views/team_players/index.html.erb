@@ -1,3 +1,8 @@
-<%  %>
-<h1> <%= @players %> </h1>
-<%  %> 
+<% @players.each do |player| %>
+<h1> <%= player.name %> </h1>
+<p> <%= player.team_id %> </p>
+<p> <%= player.age %> </p>
+<p> <%= player.healthy %> </p>
+<p> <%= player.created_at %> </p>
+<p> <%= player.updated_at %> </p>
+<% end %> 
