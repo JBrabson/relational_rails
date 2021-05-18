@@ -16,7 +16,7 @@ RSpec.describe 'the instrument creation' do
     visit "/music_stores/#{music_store.id}/instruments/new"
 
     fill_in('Kind', with: 'Bass')
-    fill_in('Rent to own', with: true)
+    choose(option: "true")
     fill_in('Cost', with: 250)
     click_button('Create Instrument')
 

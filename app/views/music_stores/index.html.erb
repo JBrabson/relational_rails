@@ -24,6 +24,8 @@ a:hover {
 
 <h1>Music Stores</h1>
 <br>
+<%= button_to "New Music Store", "/music_stores/new", method: :get %>
+<h4><%= link_to "Sort By Instrument Count", '/music_stores/sort' %></h4>
 <%= form_with url: "/music_stores/find_exact", method: :get, local: true do |form| %>
   <%= form.text_field :search %>
   <br>
@@ -35,9 +37,6 @@ a:hover {
   <br>
   <%= form.submit "Search partial match" %>
 <% end %>
-<br>
-<h4><%= link_to "Sort By Instrument Count", '/music_stores/sort' %></h4>
-<%= button_to "New Music Store", "/music_stores/new", method: :get %>
 <br>
 <br>
 <% @music_stores.each do |music_store| %>

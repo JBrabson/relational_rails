@@ -1,26 +1,6 @@
 class InstrumentsController < ApplicationController
   def index
-    @instruments = Instrument.where("rent_to_own = true")
-  end
-
-  # def new
-  # end
-
-  # def create
-  #   instrument = music_store.instruments.create!(instrument_params)
-  #   redirect_to '/instruments'
-  # end
-
-  def find_exact
-    @instruments = Instrument.all.find_all do |instrument|
-      instrument.kind.downcase == params["search"].downcase
-    end
-  end
-
-  def find_partial
-    @instruments = Instrument.all.find_all do |instrument|
-      instrument.kind.downcase.include?(params["search"].downcase) == true
-    end
+    @instruments = Instrument.rentable
   end
 
   def edit
@@ -41,6 +21,14 @@ class InstrumentsController < ApplicationController
 
   def show
     @instrument = Instrument.find(params[:id])
+  end
+
+  def find_exact
+    @instruments = Instrument.all.find_exact(params)
+  end
+
+  def find_partial
+    @instruments = Instrument.all.find_partial(params)
   end
 
 private

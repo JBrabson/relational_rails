@@ -1,27 +1,9 @@
 class MusicStoresController < ApplicationController
   def index
-    @music_stores = MusicStore.order(created_at: :desc)
+    @music_stores = MusicStore.sort_by_date
   end
 
   def new
-  end
-
-  def find_exact
-    @music_stores = MusicStore.all.find_all do |music_store|
-      music_store.name.downcase == params["search"].downcase
-    end
-  end
-
-  def find_partial
-    @music_stores = MusicStore.all.find_all do |music_store|
-      music_store.name.downcase.include?(params["search"].downcase) == true
-    end
-  end
-
-  def sort
-    @music_stores = MusicStore.all.sort do |a, b|
-      b.instruments.count <=> a.instruments.count
-    end
   end
 
   def create
@@ -51,6 +33,18 @@ class MusicStoresController < ApplicationController
   def show
     @music_store = MusicStore.find(params[:id])
     @instrument_count = @music_store.instruments.count
+  end
+
+  def find_exact
+    @music_stores = MusicStore.find_exact(params)
+  end
+
+  def find_partial
+    @music_stores = MusicStore.find_partial(params)
+  end
+
+  def sort
+    @music_stores = MusicStore.all.sort
   end
 
 private
