@@ -5,6 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+music_store_1 = MusicStore.create!(name: "Ringos Rock About", rents: true, lesson_cost: 40, created_at: "2021-05-15 20:11:38")
+music_store_2 = MusicStore.create!(name: "Jerry's Jams", rents: false, lesson_cost: 50, created_at: "2021-04-15 20:11:38")
+music_store_3 = MusicStore.create!(name: "Henry's Fancy Music Store", rents: false, lesson_cost: 70, created_at: "2021-03-15 20:11:38")
+music_store_4 = MusicStore.create!(name: "Music On The Cheap", rents: true, lesson_cost: 20, created_at: "2021-02-15 20:11:38")
+music_store_1.instruments.create!(kind: "Guitar", rent_to_own: true, cost: 1000)
+music_store_1.instruments.create!(kind: "Drums", rent_to_own: false, cost: 1500)
+music_store_3.instruments.create!(kind: "Piano", rent_to_own: false, cost: 10000)
+music_store_4.instruments.create!(kind: "Mandoline", rent_to_own: true, cost: 100)
+music_store_2.instruments.create!(kind: "Electric Guitar", rent_to_own: false, cost: 700)
+music_store_2.instruments.create!(kind: "Amp", rent_to_own: true, cost: 300)
+
 AutoDealership.destroy_all
 
 millerford = AutoDealership.create!(name: 'Larry H Miller Ford', foreign_inventory: false, city: 'Denver', state: 'CO')
@@ -25,3 +37,4 @@ alpinegmc.automobiles.create!(preowned: false, year: 2021, make: 'GMC', model: '
   engine: 'Turbo-Diesel', horsepower: 445, cylinders: 8, drive_train: '4WD', price: 57680, seating_capacity: 6)
 alpinegmc.automobiles.create!(preowned: true, year: 2016, make: 'Chevy', model: 'Tahoe', color: 'Brownstone Metallic', automatic: true,
   engine: 'Flex Fuel', horsepower: 355, cylinders: 8, drive_train: '4WD', price: 41816, seating_capacity: 8)
+

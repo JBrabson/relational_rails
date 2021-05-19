@@ -1,0 +1,19 @@
+<style>
+body {
+  background-image: url(https://media.istockphoto.com/photos/instruments-in-white-wooden-background-picture-id1219335974?k=6&m=1219335974&s=612x612&w=0&h=hn0-enYpWGSsliZmZZXQRsPvLV_AN4N80o40LalGVrA=);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+<%= link_to "All Music Stores |", "/music_stores" %>
+<%= link_to "All Instruments", "/instruments" %>
+<h1>Location: <%= @instrument.music_store.name %></h1>
+<h2>Instrument: <%= @instrument.kind %></h2>
+<h3>Cost: $<%= @instrument.cost %></h3>
+<% if @instrument.rent_to_own == true %>
+<h3> Rent to own available </h3>
+<% else %>
+<h3> Rent to own unavailable </h3>
+<% end %>
+<%= button_to "Edit", "/instruments/#{@instrument.id}/edit", method: :get %>
