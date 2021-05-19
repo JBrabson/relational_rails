@@ -1,5 +1,7 @@
+<%= link_to "Players Index", "/players" %>
+<%= link_to "Teams Index", "/teams" %>
 <% @players.each do |player| %>
-<h1> <%= player.name %> </h1>
+<h2> <%= player.name %> </h2>
 <p> <%= player.team_id %> </p>
 <p> <%= player.age %> </p>
 <p> <%= player.healthy %> </p>
