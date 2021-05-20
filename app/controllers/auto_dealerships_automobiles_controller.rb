@@ -2,6 +2,7 @@ class AutoDealershipsAutomobilesController < ApplicationController
   def index
     @auto_dealership = AutoDealership.find(params[:id])
     @automobiles = @auto_dealership.automobiles.all
+    @automobiles = @automobiles.order_by_make
   end
 
   def show

@@ -20,7 +20,7 @@ describe "When I visit the Automobiles index page" do
     gx460 = dealership_2.automobiles.create!(preowned: true, year: 2021, make: 'Lexus', model: 'GX 460', color: 'Atomic Silver', automatic: true,
       engine: 'Gasoline', horsepower: 301, cylinders: 8, drive_train: '4WD', price: 53450, seating_capacity: 5)
       #preowned boolean changed to true to allow for user story 15 spec to pass; only preowned vehicles to be displayed
-    nx300 = dealership_2.automobiles.create!(preowned: false, year: 2021, make: 'Lexus', model: 'NX 300', color: 'Atomic Silver', automatic: true,
+    nx300 = dealership_2.automobiles.create!(preowned: true, year: 2021, make: 'Lexus', model: 'NX 300', color: 'Atomic Silver', automatic: true,
       engine: 'Gasoline', horsepower: 235, cylinders: 4, drive_train: 'AWD', price: 37610, seating_capacity: 5)
 
     visit "/automobiles"
