@@ -44,6 +44,21 @@ ActiveRecord::Schema.define(version: 2021_05_15_040329) do
     t.index ["auto_dealership_id"], name: "index_automobiles_on_auto_dealership_id"
   end
 
+  create_table "players", force: :cascade do |t|
+    t.bigint "team_id"
+    t.string "name"
+    t.integer "age"
+    t.boolean "healthy"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_players_on_team_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.boolean "champion"
+    t.integer "wins"
+
   create_table "instruments", force: :cascade do |t|
     t.string "kind"
     t.boolean "rent_to_own"
@@ -63,5 +78,9 @@ ActiveRecord::Schema.define(version: 2021_05_15_040329) do
   end
 
   add_foreign_key "automobiles", "auto_dealerships"
+
+  add_foreign_key "players", "teams"
+
   add_foreign_key "instruments", "music_stores"
+
 end
