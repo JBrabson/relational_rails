@@ -1,3 +1,5 @@
+<h5><a href="/automobiles"><%= "All Automobiles" %></a></h5><br>
+<h5><a href="/auto_dealerships"><%= "All Dealerships" %></a></h5><br>
 <h4>Update Dealership Information</h4>
 <%= form_with url: "/auto_dealerships/#{@auto_dealership.id}", method: :patch, local: true do |form| %>
   <%= form.label :name %>

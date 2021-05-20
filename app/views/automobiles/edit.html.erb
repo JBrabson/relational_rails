@@ -1,3 +1,5 @@
+<h5><a href="/automobiles"><%= "All Automobiles" %></a></h5><br>
+<h5><a href="/auto_dealerships"><%= "All Dealerships" %></a></h5><br>
 <%= form_with url: "/automobiles/#{@automobile.id}", method: :patch, local: true do |form| %>
 <%= form.label :preowned %>
 <%= form.text_field :preowned %>

@@ -1,5 +1,7 @@
+<h5><a href="/automobiles"><%= "All Automobiles" %></a></h5><br>
+<h5><a href="/auto_dealerships"><%= "All Dealerships" %></a></h5><br>
 <h1>Automobiles</h1><br>
-<h5><a href="/auto_dealerships/<%=@auto_dealership.id%>/automobiles/sorted">Sort by Model</a></h5>
+<h5><a href="/auto_dealerships/<%=@auto_dealership.id%>/automobiles/sorted">Sort by Make</a></h5>
 <% @automobiles.each do |automobile| %>
     <h3><a href="automobiles/<%= automobile.id %>"><%= "#{automobile.year} #{automobile.make} #{automobile.model}" %></a></h3>
     <ul>

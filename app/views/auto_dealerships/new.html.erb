@@ -1,3 +1,5 @@
+<h5><a href="/automobiles"><%= "All Automobiles" %></a></h5><br>
+<h5><a href="/auto_dealerships"><%= "All Dealerships" %></a></h5><br>
 <h3>Create a New Auto Dealership</h3>
 <%= form_with url: "/auto_dealerships", method: :post, local: true do |form| %>
   <%= form.label :name %>

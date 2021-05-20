@@ -51,20 +51,17 @@ RSpec.describe "Auto Dealership's Automobiles index page" do
       city: "Denver", state: "CO")
     fusion = dealership_1.automobiles.create!(preowned: true, year: 2020, make: 'Ford', model: 'Fusion SEL', color: 'Black Onyx', automatic: true,
       engine: 'Gasoline', horsepower: 175, cylinders: 4, drive_train: 'FWD', price: 23170, seating_capacity: 5)
-    expedition = dealership_1.automobiles.create!(preowned: true, year: 1995, make: 'Ford', model: 'Expedition', color: 'Blue', automatic: true,
-      engine: 'Gasoline', horsepower: 245, cylinders: 8, drive_train: '4WD', price: 12499, seating_capacity: 8)
-    ranger = dealership_1.automobiles.create!(preowned: true, year: 2017, make: 'Ford', model: 'Ranger', color: 'White', automatic: true,
-      engine: 'Gasoline', horsepower: 125, cylinders: 4, drive_train: 'AWD', price: 15375, seating_capacity: 5)
-    raptor = dealership_1.automobiles.create!(preowned: true, year: 2022, make: 'Ford', model: 'F-150 Raptor', color: 'Gunmetal', automatic: true,
-      engine: 'Gasoline Twin-Turbo', horsepower: 450, cylinders: 6, drive_train: '4WD', price: 62335, seating_capacity: 5)
+    altima = dealership_1.automobiles.create!(preowned: true, year: 2015, make: 'Nissan', model: 'Altima', color: 'White', automatic: true,
+      engine: 'Gasoline', horsepower: 150, cylinders: 4, drive_train: 'FWD', price: 12499, seating_capacity: 5)
+    tl = dealership_1.automobiles.create!(preowned: true, year: 2017, make: 'Acura', model: 'TL', color: 'Black', automatic: true,
+      engine: 'Gasoline', horsepower: 170, cylinders: 4, drive_train: 'FWD', price: 15375, seating_capacity: 5)
 
     visit "/auto_dealerships/#{dealership_1.id}/automobiles"
-    expect(page).to have_link("Sort by Model")
-    click_link "Sort by Model"
+    expect(page).to have_link("Sort by Make")
+    click_link "Sort by Make"
     expect(current_path).to eq("/auto_dealerships/#{dealership_1.id}/automobiles/sorted")
-    expect("Expedition").to appear_before("Fusion", only_text: true)
-    expect("Fusion").to appear_before("Ranger", only_text: true)
-    expect("Ranger").to appear_before("F-150 Raptor", only_text: true)
+    expect("Acura TL").to appear_before("Ford Fusion", only_text: true)
+    expect("Ford Fusion").to appear_before("Nissan Altima", only_text: true)
   end
 end
 

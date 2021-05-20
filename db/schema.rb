@@ -58,7 +58,8 @@ ActiveRecord::Schema.define(version: 2021_05_15_040329) do
     t.string "name"
     t.boolean "champion"
     t.integer "wins"
-
+  end
+  
   create_table "instruments", force: :cascade do |t|
     t.string "kind"
     t.boolean "rent_to_own"
