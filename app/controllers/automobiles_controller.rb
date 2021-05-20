@@ -1,39 +1,41 @@
 class AutomobilesController < ApplicationController
 
   def index
-    @automobiles = Automobile.all
+    @automobiles = Automobile.preowned_true
   end
 
   def show
+    @automobile = Automobile.find(params[:id])
   end
 
   def new
-    @automobile = Automobile.new
-  end
-
-  def edit
   end
 
   def create
     @auto_dealership = AutoDealership.find(params[:id])
-    automobile = Automobile.new(automobile_params)
+    @automobile = AutoDealership.automobiles.new(automobile_params)
 
-    automobile.save
+    @automobile.save
 
     redirect_to "/auto_dealerships/#{@auto_dealership.id/automobiles}"
   end
 
-  # PATCH/PUT /automobiles/1 or /automobiles/1.json
-  def update
-
+  def edit
+    @automobile = Automobile.find(params[:id])
   end
 
-  # DELETE /automobiles/1 or /automobiles/1.json
+  def update
+    automobile = Automobile.find(params[:id])
+    automobile.update(automobile_params)
+    automobile.save!
+    redirect_to "/automobiles/#{automobile.id}"
+  end
+
   def destroy
   end
 
   private
     def automobile_params
-      params.require(:automobile).permit(:preowned, :year, :make, :model, :color, :automatic, :engine, :horsepower, :cylinders, :drive_train, :price, :seating_capacity)
+      params.permit(:preowned, :year, :make, :model, :color, :automatic, :engine, :horsepower, :cylinders, :drive_train, :price, :seating_capacity)
     end
 end

@@ -19,9 +19,9 @@ music_store_2.instruments.create!(kind: "Amp", rent_to_own: true, cost: 300)
 
 AutoDealership.destroy_all
 
-millerford = AutoDealership.create!(name: 'Larry H Miller Ford', foreign_inventory: false, city: 'Denver', state: 'CO')
-stevinsonlex = AutoDealership.create!(name: 'Stevinson Lexus', foreign_inventory: true, city: 'Golden', state: 'CO')
-alpinegmc = AutoDealership.create!(name: 'Alpine Buick GMC', foreign_inventory: false, city: 'Littleon', state: 'CO')
+millerford = AutoDealership.create!(name: 'Larry H Miller Ford', preowned_sales: true, foreign_inventory: false, city: 'Denver', state: 'CO')
+stevinsonlex = AutoDealership.create!(name: 'Stevinson Lexus', preowned_sales: true, foreign_inventory: true, city: 'Golden', state: 'CO')
+alpinegmc = AutoDealership.create!(name: 'Alpine Buick GMC', preowned_sales: true, foreign_inventory: false, city: 'Littleon', state: 'CO')
 
 millerford.automobiles.create!(preowned: false, year: 2022, make: 'Ford', model: 'F-150 Raptor', color: 'Gunmetal', automatic: true,
   engine: 'Gasoline Twin-Turbo', horsepower: 450, cylinders: 6, drive_train: '4WD', price: 62335, seating_capacity: 5)

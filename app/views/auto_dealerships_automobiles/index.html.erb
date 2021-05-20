@@ -1,0 +1,15 @@
+<h1>Automobiles</h1><br>
+<h5><a href="/auto_dealerships/<%=@auto_dealership.id%>/automobiles/sorted">Sort by Model</a></h5>
+<% @automobiles.each do |automobile| %>
+    <h3><a href="automobiles/<%= automobile.id %>"><%= "#{automobile.year} #{automobile.make} #{automobile.model}" %></a></h3>
+    <ul>
+      <p><%= "Preowned: #{automobile.preowned}" %></p>
+      <p><%= "#{automobile.year} #{automobile.make} #{automobile.model}" %></p>
+      <p><%= " V#{automobile.cylinders} #{automobile.horsepower}HP #{automobile.engine} #{automobile.drive_train}" %></p>
+      <p><%= "Color: #{automobile.color}" %></p>
+      <p><%= "Automatic: #{automobile.automatic}" %></p>
+      <p><%= "Seating Capacity: #{automobile.seating_capacity}" %></p>
+      <p><%= "MSRP: $#{automobile.price}" %></p><br>
+    </ul>
+<% end %><br>
+<a href="/auto_dealerships/<%=@auto_dealership.id%>/automobiles/new">Add Vehicle</a>

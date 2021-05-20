@@ -1,1 +1,10 @@
-
+<h1>Automobiles</h1>
+<h5><a href="/automobiles/preowned">View Preowned Automobiles Only</a></h5><br>
+<% @automobiles.each do |automobile| %>
+  <h3><a href="automobiles/<%= automobile.id %>"><%= "#{automobile.year} #{automobile.make} #{automobile.model}" %></a></h3>
+    <ul>
+      <p><%= "Preowned: #{automobile.preowned}" %></p>
+      <p><%= "Color: #{automobile.color}" %></p>
+      <p><%= "#{automobile.drive_train} V#{automobile.cylinders} #{automobile.engine}" %></p><br>
+    </ul>
+<% end %>

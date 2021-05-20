@@ -1,10 +1,9 @@
-<h2><%= "#{@automobile.year} #{@automobile.make} #{@automobile.model}" %></h3>
-  <ol>
+<h2><%="#{@automobile.year} #{@automobile.make} #{@automobile.model}"%></h2><br>
+  <ul>
     <p><%= "Preowned: #{@automobile.preowned}" %></p>
     <p><%= " V#{@automobile.cylinders} #{@automobile.horsepower}HP #{@automobile.engine} #{@automobile.drive_train}" %></p>
     <p><%= "Color: #{@automobile.color}" %></p>
     <p><%= "Automatic: #{@automobile.automatic}" %></p>
     <p><%= "Seating Capacity: #{@automobile.seating_capacity}" %></p>
     <p><%= "MSRP: $#{@automobile.price}" %></p><br>
-  </ol>
-  <h6><a href="/automobiles/<%=@automobile.id%>/edit">Update Automobile Information</a></h6>
+  </ul>
