@@ -1,3 +1,4 @@
+<h4>Update Dealership Information</h4>
 <%= form_with url: "/auto_dealerships/#{@auto_dealership.id}", method: :patch, local: true do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
@@ -13,5 +14,5 @@
   <br>
   <%= form.label :state %>
   <%= form.text_field :state %>
-  <%= form.submit "Update Dealership Information" %>
+  <%= form.submit "Submit Changes" %>
 <% end %>

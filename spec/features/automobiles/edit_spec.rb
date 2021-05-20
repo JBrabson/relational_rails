@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "As a visitor"
+RSpec.describe "Automobile Edit Form" do
 
 # User Story 14
 # When I visit a Child Show page
@@ -11,11 +11,10 @@ RSpec.describe "As a visitor"
 # Then a `PATCH` request is sent to '/child_table_name/:id',
 # the child's data is updated,
 # and I am redirected to the Child Show page where I see the Child's updated information
-describe "When I visit an automobile's show page" do
-  describe "I see a link to update the automobile, 'Update Automobile Information'" do
-    describe "Then I click the link and am routed to a new page with form to edit the automobile"do
-      describe "Then I fill out the form with updated information and click 'Save Changes'" do
-        it "I am redirected back to the automobile's show page where I see changes made" do
+  it "I see a link to update the automobile, 'Update Automobile Information
+     Then I click the link and am routed to a new page with form to edit the automobile
+     Then I fill out the form with updated information and click 'Save Changes'
+     I am redirected back to the automobile's show page where I see changes made" do
           dealership_1 = AutoDealership.create!(name: "Larry H Miller", preowned_sales: true, foreign_inventory: false,
             city: "Denver", state: "CO")
           raptor = dealership_1.automobiles.create!(preowned: false, year: 2022, make: 'Ford', model: 'F-150 Raptor', color: 'Gunmetal', automatic: true,
@@ -37,8 +36,5 @@ describe "When I visit an automobile's show page" do
           expect(page).to_not have_content("2022")
           expect(page).to have_content("Navy")
           expect(page).to_not have_content("Gunmetal")
-        end
-      end
     end
-  end
 end

@@ -1,13 +1,12 @@
 require "rails_helper"
 
-RSpec.describe "As a visitor"
-describe "When I visit an Auto Dealership show page" do
+RSpec.describe "Auto Dealership show page" do
 
   # User Story 2, Parent Show
   # When I visit '/parents/:id'
   # Then I see the parent with that id including the parent's attributes:
   # - data from each column that is on the parent table
-  it "it displays only that Auto Dealership and its attributes" do
+  it "displays selected Auto Dealership and its attributes" do
     dealership_1 = AutoDealership.create!(name: "Larry H Miller", preowned_sales: true, foreign_inventory: false,
       city: "Denver", state: "CO")
     dealership_2 = AutoDealership.create!(name: "Stevinson Lexus", preowned_sales: true, foreign_inventory: true,
@@ -29,7 +28,7 @@ describe "When I visit an Auto Dealership show page" do
   # User Story 7, Parent Child Count
   # When I visit a parent's show page
   # I see a count of the number of children associated with this parent
-  it "it displays number of vehicles associated with that Auto Dealership" do
+  it "displays number of vehicles associated with that Auto Dealership" do
     dealership_1 = AutoDealership.create!(name: "Larry H Miller", preowned_sales: true, foreign_inventory: false,
       city: "Denver", state: "CO")
     raptor = dealership_1.automobiles.create!(preowned: false, year: 2022, make: 'Ford', model: 'F-150 Raptor', color: 'Gunmetal', automatic: true,

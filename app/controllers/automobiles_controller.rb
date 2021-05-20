@@ -1,7 +1,7 @@
 class AutomobilesController < ApplicationController
 
   def index
-    @automobiles = Automobile.all
+    @automobiles = Automobile.preowned_true
   end
 
   def show

@@ -1,7 +1,7 @@
 class AutoDealershipsController < ApplicationController
 
   def index
-    @auto_dealerships = AutoDealership.all
+    @auto_dealerships = AutoDealership.most_recently_created
   end
 
   def show
