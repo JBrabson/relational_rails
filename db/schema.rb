@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_14_041322) do
+ActiveRecord::Schema.define(version: 2021_05_15_040329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,10 +58,29 @@ ActiveRecord::Schema.define(version: 2021_05_14_041322) do
     t.string "name"
     t.boolean "champion"
     t.integer "wins"
+
+  create_table "instruments", force: :cascade do |t|
+    t.string "kind"
+    t.boolean "rent_to_own"
+    t.integer "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "music_store_id"
+    t.index ["music_store_id"], name: "index_instruments_on_music_store_id"
+  end
+
+  create_table "music_stores", force: :cascade do |t|
+    t.string "name"
+    t.boolean "rents"
+    t.integer "lesson_cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_foreign_key "automobiles", "auto_dealerships"
+
   add_foreign_key "players", "teams"
+
+  add_foreign_key "instruments", "music_stores"
+
 end

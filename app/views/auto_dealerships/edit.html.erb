@@ -1,0 +1,18 @@
+<h4>Update Dealership Information</h4>
+<%= form_with url: "/auto_dealerships/#{@auto_dealership.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <br>
+  <%= form.label :preowned_sales %>
+  <%= form.text_field :preowned_sales %>
+  <br>
+  <%= form.label :foreign_inventory %>
+  <%= form.text_field :foreign_inventory %>
+  <br>
+  <%= form.label :city %>
+  <%= form.text_field :city %>
+  <br>
+  <%= form.label :state %>
+  <%= form.text_field :state %>
+  <%= form.submit "Submit Changes" %>
+<% end %>

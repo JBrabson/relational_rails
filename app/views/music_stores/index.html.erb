@@ -1,0 +1,49 @@
+<style>
+body {
+  background-image: url(https://images.ctfassets.net/3s5io6mnxfqz/7frDxzTDmtdJfuNN6IbXo8/6908053ae09c9097c81fee41fdd3f241/AdobeStock_212117205.jpg?fm=jpg&w=1200&fl=progressive);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: 'flex-end';
+}
+a:link, a:visited {
+  background: transparent;
+  color: blue;
+  text-decoration: underline;
+}
+a:hover {
+  font-weight: 700;
+  color: grey;
+}
+</style>
+
+<%= link_to "All Instruments", "/instruments" %>
+
+<h1>Music Stores</h1>
+<br>
+<%= button_to "New Music Store", "/music_stores/new", method: :get %>
+<h4><%= link_to "Sort By Instrument Count", '/music_stores/sort' %></h4>
+<%= form_with url: "/music_stores/find_exact", method: :get, local: true do |form| %>
+  <%= form.text_field :search %>
+  <br>
+  <%= form.submit "Search exact match" %>
+<% end %>
+<br>
+<%= form_with url: "/music_stores/find_partial", method: :get, local: true do |form| %>
+  <%= form.text_field :search %>
+  <br>
+  <%= form.submit "Search partial match" %>
+<% end %>
+<br>
+<br>
+<% @music_stores.each do |music_store| %>
+  <h2><%= music_store.name %></h2>
+  <h3><%= link_to "Check us out here!!", "/music_stores/#{music_store.id}" %></h3>
+  <h3>In business since: <%= music_store.created_at %></h3>
+  <%= button_to "Edit", "/music_stores/#{music_store.id}/edit", method: :get %>
+  <%= button_to "Delete", "/music_stores/#{music_store.id}", method: :delete %>
+<% end %>
+

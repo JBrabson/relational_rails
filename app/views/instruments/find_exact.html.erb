@@ -1,0 +1,46 @@
+<style>
+body {
+  background-image: url(https://howtocleanthings.com/wp-content/uploads/2018/03/music_cymbals-768x512.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: right;
+  color: white;
+}
+a:link, a:visited {
+  background: transparent;
+  color: white;
+  text-decoration: underline;
+}
+a:hover {
+  font-weight: 700;
+  color: blue;
+}
+</style>
+<%= link_to "All Instruments |", "/instruments" %>
+<%= link_to "All Music Stores", "/music_stores" %>
+<h1>Instruments</h1>
+<%= form_with url: "/instruments/find_exact", method: :get, local: true do |form| %>
+  <%= form.text_field :search %>
+  <br>
+  <%= form.submit "Search exact match" %>
+<% end %>
+<br>
+<%= form_with url: "/instruments/find_partial", method: :get, local: true do |form| %>
+  <%= form.text_field :search %>
+  <br>
+  <%= form.submit "Search partial match" %>
+<% end %>
+<br>
+<p><% @instruments.each do |instrument| %></p>
+  <h3><%= link_to instrument.kind, "/instruments/#{instrument.id}" %></h3>
+  <h4>Store number: <%= instrument.music_store_id %></h4>
+  <h4>Cost: $<%= instrument.cost %></h4>
+  <% if instrument.rent_to_own == true %>
+  <h4> Rent to own available </h4>
+  <% else %>
+  <h4> Rent to own unavailable </h4>
+  <% end %>
+  <%= button_to "Edit", "/instruments/#{instrument.id}/edit", method: :get %>
+  <%= button_to "Delete", "/instruments/#{instrument.id}", method: :delete %>
+<% end %>

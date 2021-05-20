@@ -1,64 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Preowned:</strong>
-  <%= @automobile.preowned %>
-</p>
-
-<p>
-  <strong>Year:</strong>
-  <%= @automobile.year %>
-</p>
-
-<p>
-  <strong>Make:</strong>
-  <%= @automobile.make %>
-</p>
-
-<p>
-  <strong>Model:</strong>
-  <%= @automobile.model %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @automobile.color %>
-</p>
-
-<p>
-  <strong>Automatic:</strong>
-  <%= @automobile.automatic %>
-</p>
-
-<p>
-  <strong>Engine:</strong>
-  <%= @automobile.engine %>
-</p>
-
-<p>
-  <strong>Horsepower:</strong>
-  <%= @automobile.horsepower %>
-</p>
-
-<p>
-  <strong>Cylinders:</strong>
-  <%= @automobile.cylinders %>
-</p>
-
-<p>
-  <strong>Drive train:</strong>
-  <%= @automobile.drive_train %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @automobile.price %>
-</p>
-
-<p>
-  <strong>Seating capacity:</strong>
-  <%= @automobile.seating_capacity %>
-</p>
-
-<%= link_to 'Edit', edit_automobile_path(@automobile) %> |
-<%= link_to 'Back', automobiles_path %>
+<h2><%= "#{@automobile.year} #{@automobile.make} #{@automobile.model}" %></h3>
+  <ol>
+    <p><%= "Preowned: #{@automobile.preowned}" %></p>
+    <p><%= " V#{@automobile.cylinders} #{@automobile.horsepower}HP #{@automobile.engine} #{@automobile.drive_train}" %></p>
+    <p><%= "Color: #{@automobile.color}" %></p>
+    <p><%= "Automatic: #{@automobile.automatic}" %></p>
+    <p><%= "Seating Capacity: #{@automobile.seating_capacity}" %></p>
+    <p><%= "MSRP: $#{@automobile.price}" %></p><br>
+  </ol>
+  <h6><a href="/automobiles/<%=@automobile.id%>/edit">Update Automobile Information</a></h6>
