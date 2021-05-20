@@ -22,3 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+[SCHEMA.pdf](https://github.com/JBrabson/relational_rails/files/6512741/SCHEMA.pdf)
