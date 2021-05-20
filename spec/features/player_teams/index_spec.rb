@@ -14,5 +14,5 @@ RSpec.describe 'the team players index page' do
     visit "/teams/#{lakers.id}/players"
 
     expect(page).to have_content(player_2.name)
-  end  
+  end 
 end
